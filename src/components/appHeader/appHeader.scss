@@ -1,0 +1,49 @@
+@import "../../style/variables.scss";
+
+.app {
+  &__header {
+    height: 100px;
+    width: 100%;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0);
+    z-index: 20;
+  }
+  &__logo {
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 37px;
+    color: #fff;
+    span {
+      color: $main-color;
+    }
+  }
+  &__menu {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__nav {
+    ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 2.333vw;
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 32px;
+      color: #fff;
+      li {
+        margin: 0 8px;
+        // a:hover {
+        //   color: $main-color;
+        // }
+      }
+    }
+  }
+}

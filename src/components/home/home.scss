@@ -1,0 +1,21 @@
+.home {
+  height: 100vh;
+  background: url("https://awdee.ru/wp-content/uploads/2017/08/M6UNqimVTSw.jpg")
+    no-repeat center/cover;
+  position: relative;
+  text-align: center;
+  padding-top: 150px;
+  &_welcome {
+    margin-bottom: 36px;
+    font-size: calc(1.325rem + 0.9vw);
+    line-height: 1.5625;
+    font-weight: 600;
+    color: white;
+  }
+  &_title {
+    font-weight: 700;
+    font-size: 96px;
+    line-height: 96px;
+    color: #fff;
+  }
+}
