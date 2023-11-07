@@ -1,0 +1,92 @@
+.expert {
+  width: 370px;
+  height: 600px;
+  margin: 20px 0;
+  padding: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  background-color: rgb(227, 210, 228);
+  transition: background-color 0.3s ease;
+  &:hover {
+    background-color: rgb(214, 175, 198);
+  }
+  &_head {
+    display: flex;
+    justify-content: space-between;
+    align-items: centr;
+  }
+  &_img {
+    width: 250px;
+    height: 320px;
+    border-radius: 15px;
+  }
+  &_starAndLang {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &_lang {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border: 1px solid #cad1f4;
+    border-radius: 16px;
+    width: 44px;
+    height: 32px;
+    padding: 6px 12px;
+    font-weight: 700;
+    font-size: 12px;
+    line-height: 20px;
+    color: #2e3a83;
+    text-transform: uppercase;
+  }
+  &_star {
+    height: 24px;
+    width: 24px;
+  }
+  &_name {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    margin-top: 18px;
+  }
+  &_descr {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24px;
+  }
+  &_specialization {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 700;
+    color: #44586b;
+  }
+  &_footer {
+    margin-top: 16px;
+    padding-top: 16px;
+    padding-bottom: 8px;
+    border-top: 1px solid #f1eefd;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: space-between;
+  }
+  &_expert_experience_and_price {
+    font-size: 16px;
+    line-height: 26px;
+    font-weight: 500;
+  }
+  &_experience {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+  }
+  &_price {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 40px;
+    color: #3456da;
+  }
+}
