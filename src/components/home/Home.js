@@ -161,7 +161,7 @@ const Home = () => {
             size="large"
             style={{
               color: "white",
-              fontSize: "20px",
+              fontSize: "16px",
               borderRadius: 10,
               background: "rgb(52, 86, 218)",
             }}

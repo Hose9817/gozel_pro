@@ -1,5 +1,5 @@
 import { NavLink, useMatch } from "react-router-dom";
-import Login from "../login/Login";
+import AuthControls from "../authControls/AuthControls";
 import "./appHeader.scss";
 
 const AppHeader = () => {
@@ -50,7 +50,7 @@ const AppHeader = () => {
             </li>
           </ul>
         </nav>
-        <Login className="app__login" />
+        <AuthControls className="app__login" />
       </div>
     </header>
   );

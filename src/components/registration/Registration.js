@@ -1,22 +1,28 @@
 import { useState } from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../redux/reducers/userReducer";
 
-const Login = () => {
+const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
-  const dispatch = useDispatch();
 
-  const loginUser = () => {
+  const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user.user);
+
+  const userRegister = (email, password) => {
+    // Получение объекта аутентификации
     const auth = getAuth();
-    signInWithEmailAndPassword(auth, email, password)
+
+    // Регистрация нового пользователя
+    createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
+        // Получение созданного пользователя
         const user = userCredential.user;
+        console.log("User created:", user);
         dispatch(
           createUser({
             email: user.email,
@@ -26,7 +32,11 @@ const Login = () => {
         );
         navigate("/");
       })
-      .catch(() => alert("Invalid user"));
+      .catch((error) => {
+        console.error("Registration error:", error);
+      });
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -42,7 +52,7 @@ const Login = () => {
         marginBottom: 20,
       }}
     >
-      <h2 style={{ marginBottom: 20 }}>Login</h2>
+      <h2 style={{ marginBottom: 20 }}>Registration</h2>
       <input
         onChange={(e) => setEmail(e.target.value)}
         value={email}
@@ -55,9 +65,11 @@ const Login = () => {
         type="password"
         placeholder="type password"
       />
-      <button onClick={() => loginUser(email, password)}>Login</button>
+      <button onClick={() => userRegister(email, password)}>
+        Registration
+      </button>
     </div>
   );
 };
 
-export default Login;
+export default Registration;
