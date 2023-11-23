@@ -1,10 +1,17 @@
 import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { useAuth } from "../../hooks/useAuth";
+import { useDispatch } from "react-redux";
+import { removeUser } from "../../redux/reducers/userReducer";
 import "./authControls.scss";
 
 const AuthControls = () => {
-  const { isAuth, email } = useAuth();
+  const { isAuth } = useAuth();
+  const dispatch = useDispatch();
+
+  const logoutHandler = () => {
+    dispatch(removeUser());
+  };
 
   return (
     <div className="login">
@@ -14,6 +21,7 @@ const AuthControls = () => {
           style={{ borderRadius: 10 }}
           color="error"
           size="large"
+          onClick={logoutHandler}
         >
           <NavLink to="/login">Log out</NavLink>
         </Button>

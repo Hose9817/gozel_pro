@@ -4,6 +4,8 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../redux/reducers/userReducer";
 
+import Modal from "../UI/modal/Modal";
+
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,10 +15,12 @@ const Login = () => {
 
   const loginUser = () => {
     const auth = getAuth();
+    console.log(auth);
+
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Signed in
         const user = userCredential.user;
+        console.log("User loged:", user);
         dispatch(
           createUser({
             email: user.email,
@@ -30,32 +34,15 @@ const Login = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: 100,
-        padding: 20,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        height: 200,
-        width: 200,
-        marginBottom: 20,
-      }}
-    >
-      <h2 style={{ marginBottom: 20 }}>Login</h2>
-      <input
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-        type="email"
-        placeholder="type email"
+    <div style={{ height: "100vh", backgroundColor: "grey", paddingTop: 150 }}>
+      <Modal
+        title="Login"
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        loginOrRegistUser={loginUser}
       />
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-        type="password"
-        placeholder="type password"
-      />
-      <button onClick={() => loginUser(email, password)}>Login</button>
     </div>
   );
 };

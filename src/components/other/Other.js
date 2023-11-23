@@ -7,18 +7,12 @@ import {
 import { addCashAction, getCashAction } from "../../redux/reducers/cashReducer";
 import { fetchCustomers } from "../../redux/asyncActions/customers";
 
-import { Navigate } from "react-router-dom";
-import { removeUser } from "../../redux/reducers/userReducer";
-import { useAuth } from "../../hooks/useAuth";
-
 import "./other.scss";
 
 const Other = () => {
   const dispatch = useDispatch();
   const cash = useSelector((state) => state.cash.cash);
   const customers = useSelector((state) => state.customers.customers);
-
-  const { isAuth, email } = useAuth();
 
   const addCash = (cash) => {
     dispatch(addCashAction(cash));
@@ -40,25 +34,12 @@ const Other = () => {
     dispatch(removeCustomerAction(id));
   };
 
-  const logOutHandler = () => {
-    console.log("logOut");
-
-    dispatch(removeUser());
-  };
-
   const marginBottom = { marginBottom: "30px" };
 
   return (
     <Container>
       <div className="other">
         <h2>Other</h2>
-        <p style={marginBottom}>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aut
-          laborum dolores id qui illum quo minus possimus architecto eligendi
-          perspiciatis iusto maxime nemo cumque dolor illo labore, fugit
-          dolorum?
-          <hr />
-        </p>
 
         <h3 style={marginBottom}>
           Count: <b>{cash}</b>
@@ -107,15 +88,6 @@ const Other = () => {
           </div>
         )}
       </div>
-
-      {isAuth ? (
-        <div style={{ marginTop: 30 }}>
-          <h3>Welcome bro...</h3>
-          <button onClick={logOutHandler}>Log out from {email}</button>
-        </div>
-      ) : (
-        <Navigate to="/login" />
-      )}
     </Container>
   );
 };

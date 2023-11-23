@@ -4,23 +4,18 @@ import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { createUser } from "../../redux/reducers/userReducer";
 
+import Modal from "../UI/modal/Modal";
+
 const Registration = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
-  // const user = useSelector((state) => state.user.user);
 
-  const userRegister = (email, password) => {
-    // Получение объекта аутентификации
+  const userRegister = () => {
     const auth = getAuth();
-
-    // Регистрация нового пользователя
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
-        // Получение созданного пользователя
         const user = userCredential.user;
         console.log("User created:", user);
         dispatch(
@@ -32,42 +27,21 @@ const Registration = () => {
         );
         navigate("/");
       })
-      .catch((error) => {
-        console.error("Registration error:", error);
-      });
+      .catch(() => alert("Invalid user"));
     setEmail("");
     setPassword("");
   };
 
   return (
-    <div
-      style={{
-        marginTop: 100,
-        padding: 20,
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "space-between",
-        height: 200,
-        width: 200,
-        marginBottom: 20,
-      }}
-    >
-      <h2 style={{ marginBottom: 20 }}>Registration</h2>
-      <input
-        onChange={(e) => setEmail(e.target.value)}
-        value={email}
-        type="email"
-        placeholder="type email"
+    <div style={{height: '100vh', backgroundColor: "grey", paddingTop: 150 }}>
+      <Modal
+        title="Registration"
+        email={email}
+        setEmail={setEmail}
+        password={password}
+        setPassword={setPassword}
+        loginOrRegistUser={userRegister}
       />
-      <input
-        onChange={(e) => setPassword(e.target.value)}
-        value={password}
-        type="password"
-        placeholder="type password"
-      />
-      <button onClick={() => userRegister(email, password)}>
-        Registration
-      </button>
     </div>
   );
 };
