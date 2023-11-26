@@ -1,5 +1,6 @@
 import { NavLink, useMatch } from "react-router-dom";
 import AuthControls from "../authControls/AuthControls";
+import BurgerMenu from "../UI/burgerMenu/BurgerMenu";
 import "./appHeader.scss";
 
 const AppHeader = () => {
@@ -52,6 +53,7 @@ const AppHeader = () => {
         </nav>
         <AuthControls className="app__login" />
       </div>
+      <BurgerMenu />
     </header>
   );
 };

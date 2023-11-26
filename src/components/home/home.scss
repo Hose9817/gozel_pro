@@ -1,9 +1,10 @@
 .home {
   height: 800px;
-  width: 100vw;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
   background: url("https://awdee.ru/wp-content/uploads/2017/08/M6UNqimVTSw.jpg")
     no-repeat center/cover;
-  // position: relative;
   text-align: center;
   padding-top: 150px;
   padding-bottom: 30px;
@@ -55,16 +56,20 @@
     line-height: 26px;
   }
   &_tape {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     align-items: center;
-    // padding: 50px 0;
+    gap: 20px;
   }
 }
 
 .homeCourses {
   padding: 80px 0 60px;
   background-color: #070c31;
+  overflow: hidden;
 
   &_header {
     display: flex;
@@ -88,16 +93,19 @@
     line-height: 26px;
   }
   &_tape {
+    width: 100%;
     display: flex;
-    justify-content: space-around;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    justify-content: flex-start;
     align-items: center;
+    gap: 15px;
   }
 }
 
 .blogs {
   padding: 80px 0 60px;
   &_wrapper {
-    padding: 0 80px;
     display: flex;
     flex-wrap: wrap;
     gap: 24px 32px;
@@ -177,3 +185,105 @@
     }
   }
 }
+
+@media (max-width: 1200px) {
+  .home_title {
+    font-size: 86px;
+  }
+  .footer_menu {
+    justify-content: space-around;
+  }
+}
+
+@media (max-width: 992px) {
+  .home_title {
+    font-size: 68px;
+  }
+  .footer {
+    &_body {
+      flex-direction: column;
+      align-items: center;
+    }
+    &_menu {
+      flex-direction: column;
+      align-items: center;
+    }
+    &_company-name {
+      display: none;
+    }
+    &_sections,
+    &_company,
+    &_platform {
+      flex-direction: row;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .home {
+    height: 600px;
+  }
+  .home_title {
+    font-size: 40px;
+    line-height: 50px;
+  }
+  .home_title__under {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .blogs_wrapper {
+    padding: 0px 5px;
+  }
+  .article_company-name {
+    font-size: 14px;
+    font-weight: 700;
+  }
+  .article_desc {
+    font-size: 14px;
+    line-height: 20px;
+  }
+  .article_tags {
+    margin-top: 6px;
+    gap: 5px;
+  }
+  .article_tag {
+    padding: 2px 5px;
+    height: 22px;
+  }
+  .footer {
+    padding: 20px 10px 10px;
+    &_menu {
+      width: 100%;
+    }
+    &_copyright {
+      font-size: 10px;
+    }
+  }
+  .footer_sections,
+  .footer_company,
+  .footer_platform {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    grid-gap: 10px;
+  }
+  .footer_sections-header,
+  .footer_company-header,
+  .footer_platform-header {
+    grid-column: 1 / span 3;
+    text-align: center;
+  }
+  .footer_sections-item,
+  .footer_company-item,
+  .footer_platform-item {
+    grid-column: span 1;
+    text-align: center;
+  }
+}
+
+// @media (max-width: 320px) {
+// }

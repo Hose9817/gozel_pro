@@ -6,10 +6,6 @@ import "./modal.scss";
 
 const Modal = ({
   title,
-  password,
-  setPassword,
-  email,
-  setEmail,
   loginOrRegistUser,
 }) => {
   const {
@@ -20,7 +16,7 @@ const Modal = ({
 
   const onSubmit = (data) => {
     loginOrRegistUser(data.email, data.password);
-    console.log(data);
+    // console.log(data);
   };
 
   const navigate = useNavigate();

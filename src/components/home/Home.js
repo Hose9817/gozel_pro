@@ -61,6 +61,8 @@ const Home = () => {
             <Expert />
             <Expert />
             <Expert />
+            <Expert />
+            <Expert />
           </div>
         </section>
       </Container>
@@ -86,12 +88,15 @@ const Home = () => {
               <NavLink to="/courses">View all courses</NavLink>
             </Button>
           </div>
+          <div className="homeCourses_tape">
+            <Course />
+            <Course />
+            <Course />
+            <Course />
+            <Course />
+            <Course />
+          </div>
         </Container>
-        <div className="homeCourses_tape">
-          <Course />
-          <Course />
-          <Course />
-        </div>
       </section>
 
       <section className="blogs">
@@ -116,12 +121,12 @@ const Home = () => {
               <NavLink to="/teachers">View all articles</NavLink>
             </Button>
           </div>
+          <div className="blogs_wrapper">
+            <Article />
+            <Article />
+            <Article />
+          </div>
         </Container>
-        <div className="blogs_wrapper">
-          <Article />
-          <Article />
-          <Article />
-        </div>
       </section>
 
       <section className="footer">
@@ -157,14 +162,10 @@ const Home = () => {
           </div>
 
           <Button
+            className="footer_btn"
             variant="contained"
-            size="large"
-            style={{
-              color: "white",
-              fontSize: "16px",
-              borderRadius: 10,
-              background: "rgb(52, 86, 218)",
-            }}
+            size="medium"
+            sx={{ borderRadius: 3, bgcolor: "rgb(52, 86, 218)" }}
           >
             T-Education for Business
           </Button>
@@ -175,7 +176,7 @@ const Home = () => {
           </div>
           <div className="footer_social">
             <div className="footer_social_icon">
-              <LinkedInIcon fontSize="large"/>
+              <LinkedInIcon fontSize="large" />
             </div>
             <div className="footer_social_icon">
               <FacebookIcon fontSize="large" />
